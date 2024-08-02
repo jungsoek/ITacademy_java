@@ -60,31 +60,31 @@ public class ex04_array {
 		// 배열명[인덱스번호] -> 변수처럼 사용을 한다.
 
 		// arr[0] -> 10
-		
-		for(int i = 0; i < arr.length; i++) {
+
+		for (int i = 0; i < arr.length; i++) {
 			sum += arr[i];
 		}
 		System.out.println("총합 : " + sum);
-		
+
 		// 다음 조건에 맞는 문제를 푸세요.
 		// - 키보드에서 배열의 길이를 입력받는다.
 		// - 입력받은 길이만큼 알파벳을 넣고 출력한다.
 		// ex) 배열의 길이를 입력하세요 : 5
 		// ABCDE
 		Scanner scanner = new Scanner(System.in);
-		
+
 		System.out.println("배열 길이 입력> ");
 		int length = scanner.nextInt();
 		char[] array = new char[length];
 		char ch = 'A';
 		String str = "";
-		
-		for(int i = 0; i < array.length; i++) {
-			array[i] = (char)(ch + i);
+
+		for (int i = 0; i < array.length; i++) {
+			array[i] = (char) (ch + i);
 			str += array[i];
 		}
 		System.out.println(str);
-		
+
 		// 동전의 개수 구하기
 		// 10 ~ 5000사이의 난수를 변수에 담는다.
 		// 1의 자리는 반드시 0이 되어야 합니다.
@@ -95,34 +95,34 @@ public class ex04_array {
 		// 100원 : 1개
 		// 50원 : 1개
 		// 10원 : 2개
-		int money = (int)((Math.random()*500 + 1))*10;
-		int [] coin = {500, 100, 50, 10};
-		
+		int money = (int) ((Math.random() * 500 + 1)) * 10;
+		int[] coin = { 500, 100, 50, 10 };
+
 		System.out.println(money);
-		for(int i = 0; i < coin.length; i++) {
+		for (int i = 0; i < coin.length; i++) {
 			int res = money / coin[i]; // 동전의 개수
 			money = money % coin[i]; // 잔돈
 			System.out.printf("%d원 : %d개 / ", coin[i], res);
 		}
 		System.out.println();
-		
+
 		// 로또번호 생성하기
 		// 1~45사이의 난수를 발생시켜 로또번호를 배열에 저장하고
 		// 출력하기
-		
-		int [] lotto = new int[6];
+
+		int[] lotto = new int[6];
 		str = "";
-		
-		outer : for(int i = 0; i < lotto.length;){//나중을 위해 i++을 생략
+
+		outer: for (int i = 0; i < lotto.length;) {// 나중을 위해 i++을 생략
 			lotto[i] = new Random().nextInt(45) + 1;
-			//중복값을 비교하는 반복문
-			for(int j = 0; j < i; j++){
-				if(lotto[i] == lotto[j]){
+			// 중복값을 비교하는 반복문
+			for (int j = 0; j < i; j++) {
+				if (lotto[i] == lotto[j]) {
 					continue outer;
-				}					
-			}//inner For
+				}
+			} // inner For
 			System.out.print(lotto[i] + " ");
-			i++;						
-		}//outer For
+			i++;
+		} // outer For
 	}
 }

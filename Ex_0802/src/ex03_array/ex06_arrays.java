@@ -32,7 +32,5 @@ public class ex06_arrays {
 		
 		Arrays.sort(arr2, Comparator.reverseOrder());
 		System.out.println(Arrays.toString(arr2));
-		
-		
 	}
 }

@@ -1,6 +1,6 @@
 package ex02_controle;
 
-public class ex01_continue {
+public class ex01_for_continue {
 	// main
 	public static void main(String[] args) {
 		// continue

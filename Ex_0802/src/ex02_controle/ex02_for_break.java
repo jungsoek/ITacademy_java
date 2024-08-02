@@ -2,7 +2,7 @@ package ex02_controle;
 
 import java.util.Scanner;
 
-public class ex02_break {
+public class ex02_for_break {
 	public static void main(String[] args) {
 		// break문은 이전에 switch문을 학습할 때 case문을 종료할 때 사용되었다.
 		// break라는 단어의 의미와 동일하게 반복문을 미리 종료할 때 사용한다.
@@ -54,17 +54,6 @@ public class ex02_break {
 			for(int j = 1; j <= 5; j++) {
 				if(j % 2 == 0) {
 					continue;
-				}
-				System.out.println(j + " ");
-			}
-			System.out.println();
-		}
-		
-		// 라벨을 이용하면 내가 원하는 반복문에 적용시킬 수 있다.
-		happy:for(int i = 1; i <= 3; i++) {
-			for(int j = 1; j <= 5; j++) {
-				if(j %2 == 0) {
-					break happy;
 				}
 				System.out.println(j + " ");
 			}
