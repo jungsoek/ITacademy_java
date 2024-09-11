@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- rel : relationship의 약자 -->
+    <link rel="stylesheet" type="text/css" href="D:\work\Ex_0903월\highlight.css">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+    <style>
+        /* p 태그를 먼저 탐색하고 그 하위에 있는
+        img태그를 탐색하여 스타일을 적용함 */
+        img{border : 5px solid red;}
+
+        /* 직계자식에게만 적용시킴 */
+        p> img{border : 5px solid blue;}
+
+        /* header id값을 가진 태그 밑에 있는 모든 h1 태그 */
+        #header h1{color:red;}
+        /* header id값을 가진 태그 바로 밑에 있는 h1 태그만 적용 */
+        #header>h1{color:red;}
+        #contents h1{color:blue;}
+
+        p{border: solid; border-color: blue;}
+        p{color:red;}
+
+    </style>
+    <div>
+        <img class="circle_pic" src="D:\work\Ex_0903월_각종 html태그, git에 관하여\image\instagram.png" width="150px" alt="">
+    </div>
+    <div>
+        <img class="circle_pic" src="D:\work\Ex_0903월_각종 html태그, git에 관하여\image\profile.jpg" width="50px" alt="">
+    </div>
+    <div id="header">
+        <h1>나는 Header의 자식</h1> <!-- 직계 자식 -->
+        <div id="nav">
+            <h1>navigation</h1> <!-- 후손 -->
+        </div>
+        <div id="nav2">
+            <h1>navigation</h1>
+        </div>
+    </div>
+    <h2 style="color:red">half_bottle</h2>
+    <button>프로필 편집</button>
+    <p>프로필 편집</p>
+    <p><strong></strong></p>
+    <p>
+        <a href="https://needlework.github.io">
+            needleworm.github.io
+        </a>
+    </p>
+    <div>
+        <div>
+            <p>half_bottle</p>
+            <button>프로필 편집</button>
+        </div>
+        <div class="highlight_bar">
+            <div>
+                <img class="highlight" src="D:\work\Ex_0903화_각종 html태그, git에 관하여\image\highlight.gif" width="50px" alt="">
+            </div>
+            <div>
+                <img class="highlight" src="D:\work\Ex_0903화_각종 html태그, git에 관하여\image\highlight.jpg" width="50px" alt="">
+            </div>
+        </div>
+        <div id="stat_bar">
+            <div class="stat">
+                게시물<br/>
+                133
+            </div>
+            <div class="stat">
+                팔로워<br/>
+                408
+            </div>
+            <div class="stat">
+                팔로우<br/>
+                189
+            </div>
+        </div>
+        <div>아이콘이 들어갈 자리</div>
+        <div>
+            <!-- 퍼센트로 지정된 값은 화면 크기에 따라
+             이미지의 크기가 바뀐다.
+             이처럼 창 크기의 변화에 맞춰 화면의 정보나 사진의 크기가
+             바뀌는 웹 페이지를 반응형 웹이라고 한다.
+             모든 웹페이지 외주 제작에서 반응형 웹이 가장 바싼 가격으로 거래되고 있다.
+             가장 수요가 높고 난이도가 높기 때문이다. -->
+            <div class="thumbnail_grid">
+                <img src="image/thumbnails/1.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/2.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/3.jpg" class="thumbnail" alt="">
+            </div>
+            <div class="thumbnail_grid">
+                <img src="image/thumbnails/4.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/5.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/6.jpg" class="thumbnail" alt="">
+            </div>
+            <div class="thumbnail_grid">
+                <img src="image/thumbnails/7.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/8.jpg" class="thumbnail" alt="">
+                <img src="image/thumbnails/9.jpg" class="thumbnail" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

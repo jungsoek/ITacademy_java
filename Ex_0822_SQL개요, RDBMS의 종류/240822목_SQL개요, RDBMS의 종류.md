@@ -1,0 +1,460 @@
+# 240822목_SQL개요, RDBMS의 종류
+
+## TODO
+
+## 진행사항
+
+1. 오라클 DB 설치
+
+   https://mybox.naver.com/share/list?shareKey=G4NjsxZyE9eZoWcGocCKL_gvQ2BwbbxuvGxeTpeB-F8B
+
+2. DBeaver IDE 설치하기
+
+## 수업 내용_SQL개요, RDBMS의 종류
+
+### SQL개요
+
+* DB 계정
+
+  * 데이터베이스의 사용자 계정
+
+    * 데이터베이스의 생성 및 관리, 데이터의 삽입, 수정, 변경 및 삭제를 수행하는 데이터베이스 계정을 의미한다.
+
+    * 관리자 계정(Administrator)
+      * 데이터베이스의 생성과 관리를 담당하는 슈퍼유저(superuser)계정이며, 정의, 생성, 삭제 등의 작업이 가능하다.
+      * 오라클 데이터베이스 생성시 관리자 계정인 SYS, SYSTEM  계정이 자동으로 생성된다.
+      * 데이터베이스에 대한 모든 권한과 책임을 가지는 계정
+
+  * 일반 계정
+    * 데이터베이스에 대하여 명령(Query), 갱신, 보고서 작성 등의 작업을 수행할 수 있는 계정
+    * 일반 계정은 업무에 필요한 최소한의 권한만 가지는 것을 원칙으로 한다.
+
+* SQL로그인
+
+  ```
+  Microsoft Windows [Version 10.0.19045.4651]
+  (c) Microsoft Corporation. All rights reserved.
+  
+  C:\Users\admin>sqlplus
+  
+  SQL*Plus: Release 11.2.0.2.0 Production on 목 8월 22 10:48:49 2024
+  
+  Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+  
+  Enter user-name: system
+  Enter password:
+  
+  Connected to:
+  Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+  
+  SQL>
+  ```
+
+* 계정언락하기
+
+  ```
+  Alter user 계정명 account unlock;
+  ```
+
+* 계정 비밀번호 설정하기
+
+  ```\
+  alter user 계정명 identified by 새비밀번호;
+  ```
+
+* ojdbc
+
+  * 데이터베이스와 통신을 담당하는 인터페이스
+  * Oracle Java DataBase Connectivity의 약자
+  * Oracle 전용의 jdbc 라이브러리이다.
+  * Oracle에서 제공하는 오라클DB를 관리할 수 있도록 해주는 JDBC이다.
+  * MYSQL, MSSQL등과 같은 DBMS에 맞는 JDBC드라이버를 사용해야 한다.
+  * JDBC드라이버의 구현체를 이용해서 특정 벤더의 데이터베이스에 접근할 수 있다.
+
+* JDBC
+
+  * JDBC(Java DataBase Connectivity)는 Java기반 어플리케이션 데이터를 데이터베이스에 저장 및 업데이트 하거나 데이터베이스에 저장된 데이터를 Java에서 사용할 수 있도록 하는 자바 API이다.
+  * Java로 만든 프로그램에서 데이터베이스에 접근하기 위해 JDBC API를 사용하여 데이터베이스에 연동할 수 있으며, 데이터베이스에서 자료를 조회하거나 업데이트하는 방법을 제공한다.
+  * JDBC API는 java.sql.*패키지에 의해 구현된다.
+
+* 스키마
+
+  1. 데이터베이스의 구조와 제약 조건에 대한 전반적인 명세를 기술한 메타데이터의 집합
+  2. 스키마는 데이터베이스를 구성하는 데이터 개체(Entity), 속성(Attribute), 관계(Relationship)및 데이터 조작 시 데이터 값들이 갖는 제약조건 등에 관해 전반적으로 정의한다.
+
+* 스키마의 종류
+
+  1. 개념스키마 : 전체적인 뷰
+
+     * 조직체 전체를 관장하는 입장에서 DB를 정의한것
+     * 관계, 제약조건, 접근권한, 보안정책, 무결성 규칙에 관한 사항을 포함하고 있다.
+     * 개념스키마를 '스키마'라고 칭하기도 하며, DB전체를 기술한것이기 때문에 한 개밖에 존재할 수 없다.
+
+  2. 내부스키마 : 물리적인 저장장치 입장에서 DB가 저장되는 방법을 기술한 것
+
+     * 스키마를 물리적으로 어떻게 디스크에 구현하기 위한 방법을 기술한 것
+     * 데이터의 실제 저장방법을 기술
+     * 시스템 프로그래머나 설계자가 보는 관점의 스키마
+
+  3. 외부스키마 : 사용자의 관점
+
+     * 사용자나 응용 프로그래머가 개인의 입장에서 필요한 데이터베이스의 논리적 구조를 정의
+
+     * 실세계에 존재하는 데이터들을 어떤 형식, 구조, 배치 화면을 통해 사용자에게 보여줄 것인가
+
+     * 전체 데이터베이스의 한 논리적 부분
+
+     * 하나의 데이터베이스에는 여러개의 외부 스키마가 존재할 수 있다.
+
+       운전면허시험, 운전면허증, 운전면허필기시험, 운전면허기능
+
+     * 개발자 입장에서는 C, Java를 통해 DB에 접근해서 데이터를 얻어온다.
+
+* SQL문
+
+  * 구조화된 질의 언어(Structured Query Language)의 약자로 DBMS 상에서 데이터를 읽고 쓰고 삭제하는 등 데이터를 관리하기 위한 일종의 프로그램 언어
+  * C, Java같은 일반 프로그래밍 언어는 절차적 언어라고 할 수 있는데 반해 SQL은 집합적 언어이다.
+  * 집합적 언어는 데이터를 특정 집합 단위로 분류해 이 단위별로 한 번에 처리하는 언어이다.
+  * RDBMS의 표준언어로 SQL을 채택했고, 표준 SQL문을 학습하면 오라클은 물론 MSSQL, MySQL 등 여러 DBMS에서 동일하게 사용할 수 있다.
+  * 물론 DBMS별로 독특한 기능이 있지만, 다른 프로그래밍 언어에 비해 그 차이는 미미하다.
+  * SQL문은 대소문자를 구별하지 않는다.
+  * 한줄 또는 여러줄에 걸쳐 입력하는 것이 가능하다.
+  * SQL문장의 끝은 세미콜론(;)으로 맺어야 한다.
+
+* SQL문의 종류
+
+  1. DDL(Data Definition Language) : 데이터 정의어
+
+     * 데이터베이스 객체를 관리하는 언어
+
+  2. DML(Data Manipulation Language) : 데이터 조작어
+
+     * 데이터 삽입, 조회, 삭제, 갱신 등 실제로 데이터를 조작하는 언어이다.
+     * 개발자 입장에서 가장 많이 사용하는 SQL문이다.
+
+  3. DCL(Data Controll Language) : 데이터 제어어
+
+     * 권한을 주거나 뺏는 키워드를 가지는 문장
+
+  4. TCL(Transaction Controll Language) : 트랜잭션 제어어
+
+     * 데이터를 데이터베이스에 적용, 되돌리거나 하는 키워드를 갖는 문장
+
+  5. DDL(Data Definition Language) : 데이터 정의어
+
+     * 데이터베이스 객체를 생성, 삭제, 변경하는 언어이다.
+
+     1. CREATE : 테이블이나, 인덱스, 뷰 등 데이터베이스 객체를 생성한다.
+     2. DROP : 생성된 데이터베이스 객체를 영구 삭제
+     3. ALTER : 이미 생성된 데이터베이스 객체를 수정
+     4. TRUNCATE : 테이블의 데이터를 통째로 삭제
+
+* SI(시스템 통합) 
+
+  * 고객으로부터 수주받아서 만드는거
+  * 고객사쪽으로 파견(운 좋으면 수도권, 운 없으면 지방)
+  * 경력 뻥튀기(0년차... -> 3년차)
+  * sk, c&c, lg, cns, samsun, sds, kt
+
+* SM(시스템 관리) : 이미 만들어진 프로젝트를 유지보수
+
+  * 내근직
+
+* 테이블
+
+  * 행과 열로 이루어진 데이터의 집합
+  * 엑셀의 모양과 굉장히 흡사하다
+  * 일반적인 데이터베이스에서는 행과 열만 있으면 테이블이라고 하지만, 관계형데이터베이스에서는 특별한 제약을 추가하기 때문에 릴레이션(relation)이라고도 부른다.
+
+* 행(row)
+
+  * 테이블을 구성하는 데이터들 중 가로로 묶은 데이터 셋을 의미한다.
+  * 일반적으로 한 명에 대한 정보를 가지고 있다.
+  * 관계형 데이터베이스에서 튜플(tuple)또는 레코드(record)라고 부른다.
+  * 행의 개수를 카디널리티라고 한다.
+
+* 열(column)
+
+  * 테이블을 구성하는 데이터들 중 세로로 묶은 데이터 셋을 의미한다.
+
+  * 일반적으로 그 테이블의 속성을 의미한다.
+
+  * 열을 구성하는 값들은 도메인(domain)으로 되어있다.
+
+    관계형 데이터베이스에서는 속성(attribute)라고 부른다.
+
+  * 열의 수를 디그리(degree)라고 한다.
+
+* 도메인(domain)
+
+  * 하나의 속성이 취할 수 있는 동일한 유형의 데이터 집합
+  * 예를들어 성별을 저장하기로 했으면 남, 여 두개만 들어올 수 있다.
+
+* 문자 데이터 타입
+
+  * 문자나 문자열 데이터는 문자형 데이터에 속하며, 오라클에서 제공하는 문자형 타입은 다음과 같다.
+
+  * 데이터 타입의 종류
+
+    | 데이터 타입  | 내용                                                         |
+    | ------------ | ------------------------------------------------------------ |
+    | CHAR(N)      | 고정길이 문자 / 최대 2000byte / 디폴트 값은 1byte            |
+    | VARCHAR2(2)  | 가변길이 문자 / 최대 4000byte / 디폴트 값은 1byte            |
+    | NCHAR(N)     | 고정길이 유니코드 문자(다국적 입력가능) / 최대 2000byte / 1byte |
+    | NVARCHAR2(N) | 가변길이 유니코드 문자(다국어 입력가능) / 최대 2000byte / 1byte |
+
+  * VARCHAR2(10)으로 선언하면 10byte까지 데이터를 입력할 수 있지만 'abc' 세글자만 입력했을 때 실제 길이는 3byte
+  * CHAR(10)으로 선언하면 'abc' 세글자만 입력해도 10byte이다.
+  * 영어는 글자당 1byte, 한글은 2byte
+
+* 숫자 데이터 타입
+
+  * NUMBER를 사용한다.
+
+    NUMBER(P,S) P : 자리수 (1 ~ 38) 디폴트 38, S : 소수점 자리수(-84 ~ 127) 디폴트 0
+
+  * FLOAT(P) NUMBER의 하위타입 / P(1 ~ 128 디폴트 : 128)
+
+* 날짜 데이터 타입
+
+  DATE BC 4712년 1월 1일부터 9999년 12월 31일, 연,월,일,시,분,초까지 입력가능
+
+  TIMESTAMP 연,월,일,시,분,초,밀리초 까지 입력가능
+
+* LOB데이터 타입
+
+  * LOB 'Large Object'의 약자로 대용량 데이터를 저장할 수 있는 데이터 타입
+
+* CLOB : 문자형 대용량 객체, 고정길이과 가변길이 문자 집합 지원, 최대 4GB
+
+* NCLOB : 유니코드(다국어)를 포함한 문자형 대용량 객체, 최대 4GB
+
+* BLOB : 이진형 대용량 객체, 최대 4GB
+
+* BFILE : 대용량 이진 파일에 대한 로케이터(위치, 이름)를 저장 최대 4GB
+
+* 제약조건
+
+  * 테이블에 문제가 생기는 결함이 있는 데이터가 입력되지 않도록 미리 지정해둔 조건
+  * 제약조건은 테이블 생성할 때 함께 설정할 수 있고, 추후에 생성하거나 변경할 수도 있다.
+
+* NOT NULL
+
+  컬럼명 자료형 NOT NULL;
+
+  * 컬럼을 정의할 때 NOT NULL 제약조건을 명시하면 해당 컬럼에는 반드시 데이터를 입력해야 한다.
+  * 즉 반드시 값이 들어 있어야 하는 컬럼에 NOT NULL 제약조건을 만들어 사용한다.
+
+* UNIQUE
+
+  컬럼명 데이터 타입 UNIQUE;
+
+  또는
+
+  CONSTRAINTS 제약조건명 UNIQUE(컬럼명);
+
+  * 해당 컬럼에 들어가는 값이 유일해야 한다는 의미이다.
+  * 즉, 중복되는 값을 허용하지 않는다.
+  * NOT NULL을 같이 명시하면 해당 컬럼에 들어오는 값은 유일함은 물론 반드시 입력해야 한다.
+
+* PRIMARY KEY(기본키)
+
+  컬럼명 자료형 PRIMARY KEY;
+
+  또는
+
+  CONSTRAINTS 제약조건명 PRIMARY KEY(컬럼명);
+
+  * UNIQUE와 NOT NULL 속성을 동시에 가진 제약조건
+  * 테이블당 1개의 기본키만 생성할 수 있다.
+
+* FOREIGN KEY(외래키)
+
+  CONSTRAINTS 외래키명 FOREIGN KEY(컬럼) REFERENCES 참조테이블(컬럼명);
+
+  * 두 테이블의 관계를 설정할 때 사용하는 제약조건
+  * 부서의 정보는 부서테이블에 저장이 되어있다.
+  * 사원테이블에는 신입사원이 입사했을 때 잘못된 부서번호를 입력하는 오류를 범할수도 있다.
+  * 외래키를 설정해놓으면 부서정보에 없는 부서번호를 입력하려고 할 때 오라클은 오류를 발생시켜 잘못된 데이터가 입력되는것을 방지한다.
+  * 사원이 있는 부서가 있을 때, 부서를 삭제할 수 없다.
+
+* 외래키 제약사항
+
+  * 참조하려는 테이블이 먼저 생성되어야 하며, 참조키가 참조 테이블의 기본키로 만들어져 있어야 한다.
+  * 외래키에 사용할 수 있는 컬럼 개수는 최대 32개이다.
+  * 여러 컬럼을 외래키로 만드려면, 참조하는 컬럼과 외래키 컬럼의 순서와 개수는 같아야 한다.
+
+* CONSTRAINT 체크명 CHECK(체크조건);
+
+  * 컬럼에 입력되는 데이터를 체크해 특정 조건에 맞는 데이터만 입력받고 그렇지 않으면 오류를 낸다.
+
+* DEFAULT
+
+  컬럼명 자료형 DEFAULT 값
+
+  * 아무것도 입력하지 않으면 설정한 기본값이 입력됨
+  * 값이 입력되면 기본값은 무시된다.
+
+* 테이블 생성
+
+  ```SQL
+  CREATE TABLE 테이블명(
+  	컬럼명 자료형(길이)
+  	컬럼명 자료형(길이)
+  	컬럼명 자료형(길이)
+  );
+  
+  테이블 삭제
+  DROP TABLE 테이블명;
+  ```
+
+* 테이블 변경
+
+  * CREATE문으로 테이블을 생성한 후 불가피하게 수정해야 할 상황이 발생할 수 있다.
+  * 최초설계를 잘못한 원인도 있고, 요구사항이 변경될수도 있다.
+  * 여러 원인으로 기존에 생성했던 컬럼의 데이터타입을 수정하거나 삭제, 새로운 컬럼을 넣어야 하는 경우가 발생하는데, 이때마다 테이블을 삭제하고 생성하는 것은 여러 문제를 발생시킬 수 있다.
+  * 이럴때 ALTER TABLE문을 사용해 테이블을 수정할 수 있다.
+
+```SQL
+/*
+ * CREATE TABLE 테이블명(
+ * 	컬럼명 타입(길이),
+ * 	컬럼명 타입(길이),
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+-- 이름
+-- VARCHAR2(100)
+-- 나이
+-- NUMBER
+CREATE TABLE TBL_MEMBER(
+	NAME VARCHAR2(100),
+	AGE NUMBER
+);
+
+CREATE TABLE TBL_CAR(
+	ID NUMBER, -- 차량 식별번호
+	BRAND VARCHAR2(100), -- 브랜드
+	COLOR VARCHAR2(100), -- 색깔
+	PRICE NUMBER, -- 가격
+	CONSTRAINT CAR_PK PRIMARY KEY(ID) -- 테이블을 생성하면서 제약조건을 지정
+);
+
+DROP TABLE TBL_CAR;
+DROP TABLE TBL_MEMBER;
+
+-- 테이블명 : ex2_10
+-- 속성1 : Col1 문자형 길이는 10 null값 비허용
+-- 속성2 : Col2 문자형 길이 10 null값 허용
+-- 속성3 : Create_date 날짜타입 기본값 현재날짜(SYSDATE)
+CREATE TABLE ex2_10 (
+	Col1 VARCHAR2(10) NOT NULL,
+	Col2 VARCHAR2(10),
+	Create_date DATE DEFAULT SYSDATE
+);
+
+DROP TABLE ex2_10;
+
+-- 컬럼명 변경 Col1 -> Col11
+-- alter table 테이블명 RENAME COLUMN 기존컬럼명 TO 새로운 컬럼명
+ALTER TABLE ex2_10 RENAME COLUMN Col1 TO Col11;
+
+-- 컬럼타입 변경
+-- alter table 테이블명 MODIFY 컬럼명 데이터타입;
+ALTER TABLE ex2_10 MODIFY Col2 VARCHAR2(30);
+
+-- 컬럼삭제
+-- alter table 테이블명 drop column 컬럼명;
+ALTER TABLE ex2_10 DROP COLUMN Create_date;
+
+-- 컬럼추가
+-- alter table 테이블명 add 컬럼명 컬럼타입;
+ALTER TABLE ex2_10 ADD Col3 NUMBER;
+
+-- 제약조건 추가
+-- 테이블이 생성된 후 제약조건을 추가 or 삭제
+-- alter table 테이블명 add constraint 제약조건명 제약조건종류(컬럼명);
+ALTER TABLE ex2_10 ADD CONSTRAINT pk_ex2_10 PRIMARY KEY(Col11);
+
+-- 제약조건 삭제
+-- alter table 테이블명 DROP CONSTRAINT 제약조건명;
+ALTER TABLE ex2_10 DROP CONSTRAINT pk_ex2_10;
+
+-- 테이블 생성
+-- 테이블명 TBL_ANIMAL
+-- ID 숫자 기본키
+-- "TYPE" 문자형 길이 100
+-- AGE 숫자형 길이3
+-- FEED 문자형 길이 100
+CREATE TABLE TBL_ANIMAL(
+	ID NUMBER PRIMARY KEY,
+	"TYPE" VARCHAR2(100),
+	AGE NUMBER(3),
+	FEED VARCHAR2(100)
+);
+
+ALTER TABLE TBL_ANIMAL DROP CONSTRAINT SYS_C0070003; -- 이름이 다를 수 있다.
+
+-- 제약조건 추가하기
+-- ID 컬럼에 ANIMAL_PK라는 이름으로 기본키 설정하기
+ALTER TABLE TBL_ANIMAL ADD CONSTRAINT animal_pk PRIMARY KEY(ID);
+
+-- TBL_ANIMAL테이블 삭제하기
+DROP TABLE TBL_ANIMAL;
+
+-- DEFAULT 과 CHECK제약조건
+CREATE TABLE TBL_STUDENT(
+	ID NUMBER, -- 학번
+	NAME VARCHAR2(100), -- 이름
+	MAJOR VARCHAR2(100), -- 전공
+	GENDER CHAR(1) DEFAULT 'W' NOT NULL CONSTRAINT BAN_CHAR CHECK(GENDER='M' OR GENDER='W'),
+	BIRTH DATE CONSTRAINT BAN_DATE CHECK(BIRTH >= TO_DATE('1980-01-01', 'YYYY-MM-DD'))
+	CONSTRAINT STD_PK PRIMARY KEY(ID)
+);
+
+DROP TABLE TBL_STUDENT;
+```
+
+### RDBMS의 종류
+
+* Orable
+
+  오라클에서 개발, 상업용으로는 유로
+
+* MySQL
+
+  오픈소스 커뮤니티에서 개발
+
+* PostgreSQL
+
+  오픈소스 커뮤니티에서 개발
+
+* MSSQL
+
+  마이크로소프트에서 개발
+
+* DB2
+
+  IBM이 개발
+
+* MariaDB
+
+## Memo
+
+* HW
+
+  * 자기주도학습하기
+
+    EX) 각자 1문제씩 정하고 다른 사람에게 설명해주기
+
+  * 이번주 과제 : 친해지기(식사)
+
+    * 1조 : 정연호 김민승 김지수 한종원
+    * 2조 : 양병규 조한얼 황혜진
+    * 3조 : 이효용 장환석 강병준
+    * 4조 : 오규환 최동욱 윤승범
+
+  

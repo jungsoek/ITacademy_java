@@ -1,0 +1,50 @@
+h2 {
+    color : red;
+}
+/* 클래스 선택자를 쓸 때는 .클래스값으로 써야한다. */
+
+/* 이거중요 별표세개 */
+.highlight_bar {
+    border : solid;
+    border-color: cyan;
+}
+
+.highlight {
+    display: grid;
+    grid-template-columns: 300px 300px 1fr 1fr;
+    width: 10%;
+    height: 10%;
+}
+
+/* 아이디 선택자를 쓸 때는 #아이디값으로 써야한다. */
+#profile {
+    border : solid;
+    border-color : blue;
+}
+
+.thumbnail_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.thumbnail{
+    width: 100%;
+}
+
+#stat_bar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.stat{
+    text-align: center;
+}
+
+.circle_pic{
+    border: solid grey 1px;
+    border-radius: 50%;
+}

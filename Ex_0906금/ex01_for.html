@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let dan = 8;
+    for(let i = 0; i < 9; i++) {
+        document.write(`<h1> ${dan} x ${i+1} = ${dan * (i+1)} <h1>`);
+    }
+    let arr = new Array(3);
+    // 값을 넣기 전까지 어떤 타입의 데이터가 들어올지 알 수 없다.
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = '안녕';
+    arr[3] = 3.14; // 크기가 모자라면 더 만든다.
+
+    for(let i = 0; i < arr.length; i++) {
+        document.write(`${arr[i]}<br>`);
+    }
+    
+    document.write(arr + arr);
+
+    document.write(arr.concat(arr));
+
+</script>
+<body>
+    
+</body>
+</html>

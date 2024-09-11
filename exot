@@ -1,0 +1,107 @@
+[33mcommit 65363b202f057f93aaf8cb288c2f30baf3b117e3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Thu Aug 29 17:32:37 2024 +0900
+
+    pl/sql문, 반복문
+
+[33mcommit 6c13f2920bdc1d5630156fd572f231a23b4e00ef[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Wed Aug 28 17:54:21 2024 +0900
+
+    숫자함수, 집계함수,그룹화,별칭,join,view,트랜잭션
+
+[33mcommit 30ab6793fb44e1507d01f5e3847cd6c4190c3f42[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Tue Aug 27 17:06:31 2024 +0900
+
+    having, dcl, index, subquery
+
+[33mcommit 41ef9a476e624762ea1e4be0b086237ee06028eb[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Fri Aug 23 18:10:37 2024 +0900
+
+    DBMS, RDBMS, DDL, DCL, DML
+
+[33mcommit f4331a477db1fd62dd3b29e4dd1c6093fc98a0b2[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Thu Aug 22 17:39:12 2024 +0900
+
+    sql개요, 오라클 설치, 테이블생성, 삭제, 수정 등
+
+[33mcommit f81b3152c46bd82403ce65ef240f13eea48e1881[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Wed Aug 21 17:52:27 2024 +0900
+
+    시험, 스트림
+
+[33mcommit 313fb0ae12e71472ac1f8898dfec279dadab6d76[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Tue Aug 20 17:48:00 2024 +0900
+
+    열거형, 어노테이션
+
+[33mcommit 85786d9f849d5024fc647714e481733b3cfaa1c6[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Mon Aug 19 17:49:31 2024 +0900
+
+    파일입출력
+
+[33mcommit c95c027f3c3fb7129f9e1f45d3fda77ce59d41de[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Fri Aug 16 18:03:10 2024 +0900
+
+    스레드
+
+[33mcommit f9d222a68bd533f8cbc3e3a63eb3ad6b3fa27f83[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Tue Aug 13 17:53:52 2024 +0900
+
+    컬렉션,제네릭
+
+[33mcommit 91e767624643222559ba76fb91f5e3972882aa05[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Wed Aug 7 18:38:04 2024 +0900
+
+    상속, 접근제한자, 객체지향의 특징
+
+[33mcommit 2488e8fc79b20a701e10f8af6eea05d28823d52c[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Mon Aug 5 17:53:01 2024 +0900
+
+    클래스
+
+[33mcommit 5f23642ca4c15ebb09eff33f48e1de0fd6918dc5[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Fri Aug 2 20:39:11 2024 +0900
+
+    switch, while, for
+
+[33mcommit 113446f255f36a72565dbdf4e68652120aaf6514[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Fri Aug 2 18:23:13 2024 +0900
+
+    기타제어문, 배열, 다차원배열
+
+[33mcommit bb0260e888e356b47258b2a24c481b1bcdce8a59[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Fri Aug 2 18:20:46 2024 +0900
+
+    기타제어문, 배열, 다차원 배열
+
+[33mcommit 564651abee976f539ed918f7f2f00a9e091b8a04[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Thu Aug 1 18:54:27 2024 +0900
+
+    switch, while, for
+
+[33mcommit 4af012a2b14e73b54af6316b9ab1bf257ffc799c[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Wed Jul 31 18:19:14 2024 +0900
+
+    형변환, 스캐너, 연산자, 조건문
+
+[33mcommit 7091b66a74832fafc2264bd6489013c7b8d363ff[m
+Author: jungsoek <jungsoeko@gmail.com>
+Date:   Tue Jul 30 18:54:26 2024 +0900
+
+    test:

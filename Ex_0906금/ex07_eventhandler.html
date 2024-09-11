@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let button = document.querySelectorAll("input");
+    button.addEventListener("input",
+        function(e) {
+            console.log(e.target.value);
+        });
+    // button에 이벤트를 붙인다.
+    // 선택한 요소.addEventListener(이벤트의 종류, 함수);
+    // EventListener : 이벤트 감지기 이벤트가 발생하면 작동
+</script>
+<body>
+    <input type="button" value="click" onclick="alert('안녕하세요')">
+    <input type="button" value="click" onclick="button()">
+</body>
+</html>

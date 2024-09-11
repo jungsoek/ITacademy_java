@@ -1,0 +1,20 @@
+.container { 
+    display: flex;
+}
+
+.input_button_container {
+    display: inline;
+}
+
+.input_container {
+    margin-top: 60px;
+    display: block;
+    width: 100px;
+    height: 50px;
+}
+
+.checkbox_container {
+    margin-top: 20px;
+    display: flex;
+    width: 200px;
+}
